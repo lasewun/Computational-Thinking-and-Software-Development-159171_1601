@@ -1,4 +1,4 @@
-# Assignment 1a Part 3
+# Assignment 1a Part 3 - Roger Gilbertson - 7.04.16
 
 
 #Variables
@@ -20,14 +20,8 @@ def user_input(formatstring):
     return set(keyList) # removes duplicates: no duplicates in a set
 
 
-            # print('Here is your story'
-            #       'The famous explorer ',user_name,'had nearly given up a life long quest to find'
-            #       'the lost city of when one day, the cats found the explorer.'
-            #       'Surrounded by 'integer_value,plural_noun,'a tear came to ',user_name,"'s hair."
-            #       'After all this time, the quest was finally over'
-            #       'And then, the cats promptly devoured ',user_name,'.'
-            #       'The moral of the story? Be careful what you dream for.'
-            #       '----------------The end-----------------')
+
+
 
 
 
@@ -100,3 +94,11 @@ The End
 
 main()
 
+# print('Here is your story'
+#       'The famous explorer ',user_name,'had nearly given up a life long quest to find'
+#       'the lost city of when one day, the cats found the explorer.'
+#       'Surrounded by 'integer_value,plural_noun,'a tear came to ',user_name,"'s hair."
+#       'After all this time, the quest was finally over'
+#       'And then, the cats promptly devoured ',user_name,'.'
+#       'The moral of the story? Be careful what you dream for.'
+#       '----------------The end-----------------')
