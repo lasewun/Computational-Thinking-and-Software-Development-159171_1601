@@ -7,17 +7,6 @@ def intro():
     print('Please provide the following to help')
     print('create a new story')
 
-def user_input(formatstring):
-    keyList = list()
-    end = 0
-    repetitions = formatString.count('{')
-    for i in range(repetitions):
-        start = formatString.find('{', end) + 1 # pass the '{'
-        end = formatString.find('}', start)
-        key = formatString[start : end]
-        keyList.append(key) # may add duplicates
-
-    return set(keyList) # removes duplicates: no duplicates in a set
 
 
 
@@ -93,12 +82,3 @@ The End
 
 
 main()
-
-# print('Here is your story'
-#       'The famous explorer ',user_name,'had nearly given up a life long quest to find'
-#       'the lost city of when one day, the cats found the explorer.'
-#       'Surrounded by 'integer_value,plural_noun,'a tear came to ',user_name,"'s hair."
-#       'After all this time, the quest was finally over'
-#       'And then, the cats promptly devoured ',user_name,'.'
-#       'The moral of the story? Be careful what you dream for.'
-#       '----------------The end-----------------')

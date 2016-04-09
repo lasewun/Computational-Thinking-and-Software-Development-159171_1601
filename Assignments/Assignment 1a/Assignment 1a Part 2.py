@@ -7,7 +7,7 @@ listOfStrings   = []                                                    #list of
 numberOfEntries = (int(input('How many entries will there be? : ')))    #user specified length of list
 
 def stringEntry(index):                                                      #Function returns user input
-    return str(input('Please enter in word here'+str(index +1)+' : '))                   #code of function
+    return str(input('Please enter string '+str(index + 1)+' here : '))                   #code of function
 
 def stringLength():                                                     #function that prints
     total = 0
