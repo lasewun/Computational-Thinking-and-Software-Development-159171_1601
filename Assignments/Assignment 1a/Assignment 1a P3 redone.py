@@ -1,4 +1,4 @@
-# Assignment 1a Part 3 - Roger Gilbertson - 7.04.16
+# Assignment 1a Part 3 - Roger Gilbertson - 7.04.16 needs notes
 
 #Variables
 def intro():
@@ -8,7 +8,7 @@ def intro():
     return
 
 def userInputValues():
-    inputValues = dict()
+    inputValues = dict() #redundant
     inputValues = dict(username=0, plural_noun=0, integer_value=0, body_part=0, verb=0)
     inputValues.update(username=(str(input('Please enter name: '))))
     inputValues.update(plural_noun=(str(input('Please enter plural noun: '))))
