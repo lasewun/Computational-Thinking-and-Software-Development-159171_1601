@@ -1,7 +1,7 @@
 #Assignment 1a Part1 - Roger Gilbertson - 28.03.16
-#
+
 # Savings calculator
-#
+
 
 # Functions
 def calculateSavingsTotal(savingsPerWeek, numWeeks):                               #total savings function
