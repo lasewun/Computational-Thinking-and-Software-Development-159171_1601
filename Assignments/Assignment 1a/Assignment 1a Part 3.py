@@ -1,4 +1,4 @@
-# Assignment 1a Part 3 - Roger Gilbertson - 7.04.16
+# Assignment 1a Part 3 - Roger Gilbertson - 7.04.16 t
 
 
 #Variables
