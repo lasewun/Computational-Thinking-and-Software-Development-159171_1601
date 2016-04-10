@@ -14,8 +14,8 @@ def intInput(string):                                                           
 def main():
     savingsPerWeek = intInput('Please enter in amount saved per week : ')          #variable for savings per week
     numWeeks       = intInput('Please enter number of weeks : ')                   #variable for number of weeks
-    savings        = calculateSavingsTotal(savingsPerWeek, numWeeks)
+    savings        = calculateSavingsTotal(savingsPerWeek, numWeeks)               #savings calculation
     print("You can save a total of ${} over {} weeks.".format(savings, numWeeks))  #printing string in correct format
 
 #code
-main()
+main()                                                                             #call of main function
