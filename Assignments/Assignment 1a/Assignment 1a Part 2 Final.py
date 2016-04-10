@@ -1,4 +1,4 @@
-#Assignment 1a Part 2 - Roger Gilbertson - 28.03.16
+#Assignment 1a Part 2 - Roger Gilbertson - Student ID: 14292284 - 28.03.16
 
 #string length calculator
 

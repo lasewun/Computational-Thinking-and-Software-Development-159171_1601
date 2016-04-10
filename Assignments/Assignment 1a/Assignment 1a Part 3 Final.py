@@ -1,4 +1,4 @@
-# Assignment 1a Part 3 - Roger Gilbertson - 9.04.16
+# Assignment 1a Part 3 - Roger Gilbertson - Student ID: 14292284 - 9.04.16
 
 #Variables
 def intro():                                                                                       #Intro
@@ -24,7 +24,7 @@ def printStory(story, inputValues):                                             
 
 def main():                                                                                        #main function
     inputValues = userInputValues()                                                                #calls userInputValues
-    story = '''
+    formatedStory = '''
         ----------------------------------------
         Here is your story
         The famous explorer {username} had nearly given up a life long quest to find
@@ -34,9 +34,9 @@ def main():                                                                     
         And then, the {plural_noun} promptly devoured {username}.
         The moral of the story? Be careful what you {verb} for.
         ----------------The end-----------------
-            '''
+                    '''
     intro()                                                                                        #call of intro function
-    printStory(story, inputValues)                                                                 #calls printStory function using story
+    printStory(formatedStory, inputValues)                                                         #calls printStory function using story
 
 #code
 main()                                                                                             #call of main function

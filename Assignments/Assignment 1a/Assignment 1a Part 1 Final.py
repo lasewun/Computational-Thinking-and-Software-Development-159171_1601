@@ -1,4 +1,4 @@
-#Assignment 1a Part1 - Roger Gilbertson - 28.03.16
+#Assignment 1a Part1 - Roger Gilbertson - Student ID: 14292284 - 28.03.16
 
 # Savings calculator
 
