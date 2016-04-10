@@ -6,10 +6,10 @@ def intro():                                                                    
     print('     Please provide the following to help')
     print('     create a new story')
 
-def strInput(string):
+def strInput(string):                                                                              #function for returning str input
     return str(input(string))
 
-def userInputValues():                                                                             #funcation for dictionary of userinputs
+def userInputValues():                                                                             #functions for dictionary of userinputs
     inputValues = dict(username=0, plural_noun=0, integer_value=0, body_part=0, verb=0)            #list of values to have values updated by user
     inputValues.update(username     =strInput('Please enter a name: '))                            #update of value with user input
     inputValues.update(plural_noun  =strInput('Please enter a plural noun: '))
@@ -37,7 +37,6 @@ def main():                                                                     
             '''
     intro()                                                                                        #call of intro function
     printStory(story, inputValues)                                                                 #calls printStory function using story
-    return
 
 #code
 main()                                                                                             #call of main function
