@@ -13,10 +13,10 @@ def stringLength():                                                         #fun
     total = 0
     for string in listOfStrings:                                            #for loop to get string length user inputted number of times
         stringLength = len(string)
-        print("The length of string '" + string + "' is : " + str(stringLength))
+        print("The length of string '" + string + "' is: " + str(stringLength))
         total += stringLength                                               #strings length together
 
-    print("All strings total to length " + str(total))                      #prints sum of string lengths
+    print("The total length of all strings is: " + str(total))              #prints sum of string lengths
 
 
 
