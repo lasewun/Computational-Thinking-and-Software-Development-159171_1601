@@ -1,5 +1,7 @@
 # Assignment 1a Part 3 - Roger Gilbertson - Student ID: 14292284 - 9.04.16
 
+#MadLib Story Program
+
 #Variables
 def intro():                                                                                       #Intro
     print('     Welcome to Mad libs!')
@@ -23,6 +25,7 @@ def printStory(story, inputValues):                                             
     print(story)                                                                                   #prints story
 
 def main():                                                                                        #main function
+    intro()                                                                                        #call of intro function
     inputValues = userInputValues()                                                                #calls userInputValues
     formatedStory = '''
         ----------------------------------------
@@ -35,7 +38,6 @@ def main():                                                                     
         The moral of the story? Be careful what you {verb} for.
         ----------------The end-----------------
                     '''
-    intro()                                                                                        #call of intro function
     printStory(formatedStory, inputValues)                                                         #calls printStory function using story
 
 #code

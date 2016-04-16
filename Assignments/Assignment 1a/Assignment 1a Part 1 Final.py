@@ -2,7 +2,6 @@
 
 # Savings calculator
 
-
 # Functions
 def calculateSavingsTotal(savingsPerWeek, numWeeks):                               #total savings function
     savings = savingsPerWeek * numWeeks                                            #total savings calculation
