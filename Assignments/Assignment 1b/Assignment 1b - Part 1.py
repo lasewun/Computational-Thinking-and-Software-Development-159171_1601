@@ -9,15 +9,14 @@
 # n is the number of times that interest in compounded per year
 # t is the number of years that money is invested for
 
-initialInvestmentValue    = input('Initial investment Value is : ')
-annualInterestRate        = input('Annual interest rate is: '     )
-numTimessInterestCompound = input('Number of times that interest in compounded per yer : ')
-numYearsMoneyInvested     = input('Number of years invested : ')
+investment    = float(input('Initial investment Value is : '))
+apr           = int(input(('Annual interest rate is: (in percent)'     )))
+years         = int(input('Number of years invested : '))
+total = investment * (1 + ((int(apr)/1)/100))**(1*int(years))
 
-for i in range(numYearsMoneyInvested):
-    savings = savings * (1 + annualInterestRate)
+print(float("{0:.2f}".format(total)))
 
-print(savings)
+#print(sum)
 
 # def main():
 #     print("This program calculates the future value")
@@ -30,9 +29,9 @@ print(savings)
 #     for i in range(1, int(years) +1 ):
 #         principal = float(principal) * (1 + float(apr))
 #         print("The value in", i, " years is:", principal)
-#
-#
-# main()
+
+
+
 import sys
 
 # Python 2/3 compatibility shim
