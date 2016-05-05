@@ -1,4 +1,4 @@
-#assignment 2a Question 2
+# assignment 2a Question 2
 import random
 
 movies_list = []
