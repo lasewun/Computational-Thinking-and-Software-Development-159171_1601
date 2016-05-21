@@ -1,127 +1,134 @@
-# assignment 2a Question 2
+
+#assignment 2a Question 2 Roger Gilbertson
 import random
 
-movies_list = []
-lastSelection = []
-favouritesList = []
-
-
 def load():
-    try:
-        print('Call of load')
-        fileName = input("Please enter name of file (Default is 'movies.txt') :")
-        file = open(fileName, "r")  # open the file
-        movies_list = file.readlines()  # load each line into a list
+    movies_list = []
+    fileName    = input("Please enter name of file (Default is 'movies.txt') :") or "movies.txt"
+
+    try:                                                        #TRYS FUNCTION IF NOT MOVES TO EXCEPT
+        print("Call of load")
+
+        file = open(fileName, "r")                              # OPENS FILE
+        movies_list = file.readlines()                          # LOADS EACH LINE INTO LIST
         movies_list = [movie.strip() for movie in movies_list]
-        file.close()  # close the file
+        file.close()                                            # CLOSES FILE
+
         print(movies_list)
-        return movies_list
-    except FileNotFoundError:
-        print('File could not be opened. Please check movies-2.text is in same directory as .py file.\n \
-        Returning to main menu.')
-        main(movies_list)
+
+    except FileNotFoundError:                                   #IF FILE NOT FOUND DISPLAYS ERROR MESSAGE
+        print('File could not be opened. Please check movies.txt is in same directory as .py file.\n \
+               Returning to main menu.')
+
+    return movies_list;
 
 
 def randomSelection(movies_list):
-    print('Call of random')
-    try:
-        lastSelection =(random.choice(movies_list))
-        print(lastSelection)
-        return lastSelection
-    except IndexError:
-        print('Choice could not be completed. Please check movies.txt or .txt file has been loaded first\n \
-            Returning to main menu.')
-        main()
+    print('Random Movie Selection')
+
+    matching_movies_list = [];
+    matching_movies_list.append(random.choice(movies_list))
+    print(matching_movies_list[0])
+    return matching_movies_list;
 
 
 def search(movies_list):
-    print('Call of search')
-    stringSearch = [input('Enter word/s here to search')]
-    for string in stringSearch:
+    print('Search of movies: ')
+
+    matching_movies_list = []
+    search_input         = [input('Enter word/s here to search: ')]
+
+    for string in search_input:
         for item in movies_list:
-            if string in item:
-                lastSelection = (item, 'found')
-                print(lastSelection)
-                return lastSelection
+            if string.lower() in item.lower():
+                matching_movies_list.append(item)
+                print(item, 'found')
+
+    return matching_movies_list
 
 
 def startsWith(movies_list):
-    print('Call of startswith')
-    str = [input('Enter word/s here to search')]
-    for string in str:
+    print('Search movies by start of name: ')
+
+    matching_movies_list = []
+    words_input          = [input('Enter word/s here to search: ')]
+
+    for string in words_input:
         for item in movies_list:
-            if item.startswith(string):
-                lastSelection = item
-                print(lastSelection)
-                return lastSelection
+            if item.lower().startswith(string.lower()):
+                matching_movies_list.append(item)
+                print(item)
+
+    return matching_movies_list
 
 
-def keep(lastSelection):
-    print('call of keep')
-    favouritesList.append(lastSelection)
+def keep(favourites_list, last_movies_list):
+    print('Keeping movie in Favourites')
+    new_favourites_list = favourites_list + last_movies_list
+    print(new_favourites_list);
+    return new_favourites_list
 
 
-def favourites(favouritesList):
-    print(favouritesList)
-    return favouritesList
+def displayFavourites(favourites_list):
+    print('Printing Favourites List')
+    print(favourites_list)
 
 
-def clearFavourites(favouritesList):
-    del favouritesList[:]
-    print('Clearing')
-    return favouritesList
+def clearFavourites(favourites_list):
+    print('Cleared Favourites')
+    return []
 
-def main(movies_list, lastSelection):
-    movies_list
-    lastSelection
-    favouritesList
-    menu = """
-    *** Movie Title Explorer ***
-        l – load file of movie titles
-        r – random movie
-        s – search
-        sw – starts with
-        k – keep - save the last displayed movie title to your favourites
-        f – favourites display
-        c – clear favourites
-        q – quit
-    command: ?"""
 
-    print(menu)
-    inputSelection = input('')
-    while inputSelection != ('l', 'r', 's', 'sw', 'k', 'f', 'c'):
+def main():
 
-        if inputSelection == 'l':
+    movies_list      = []
+    last_movies_list = []
+    favourites_list  = []
+    quit             = False
+
+    while quit == False:
+
+        print("""
+        *** Movie Title Explorer ***
+            l – load file of movie titles
+            r – random movie
+            s – search
+            sw – starts with
+            k – keep - save the last displayed movie title to your favourites
+            f – favourites display
+            c – clear favourites
+            q – quit
+        command: ?""")
+
+        userinput = input()
+
+        if userinput == 'l':
             movies_list = load()
-            main(movies_list, lastSelection)
 
-        elif inputSelection == 'r':
-            lastSelection = randomSelection(movies_list)
-            main(movies_list, lastSelection)
+        elif userinput == 'q':
+            quit = True;
 
-        elif inputSelection == 's':
-            search(movies_list)
-            main(movies_list, lastSelection)
+        elif len(movies_list) == 0:                             #USES IF LENGTH OF 'MOVIE LIST' EMPTY  PRINT ERROR MESSAGE
+            print('You need to load your movies file first!')
 
-        elif inputSelection == 'sw':
-            startsWith(movies_list)
-            main(movies_list, lastSelection)
+        elif userinput == 'r':
+            last_movies_list = randomSelection(movies_list)
 
-        elif inputSelection == 'k':
-            keep(lastSelection)
-            main(movies_list,lastSelection)
+        elif userinput == 's':
+            last_movies_list = search(movies_list)
 
-        elif inputSelection == 'f':
-            favourites(favouritesList)
-            main(movies_list, lastSelection)
+        elif userinput == 'sw':
+            last_movies_list = startsWith(movies_list)
 
-        elif inputSelection == 'c':
-            clearFavourites(favouritesList)
-            main(movies_list, lastSelection)
+        elif userinput == 'k':
+            favourites_list = keep(favourites_list, last_movies_list)
 
-        else:
-            quit()
-    else:
-        print('ending')
-        return
-main(movies_list, lastSelection)
+        elif userinput == 'f':
+            displayFavourites(favourites_list)
+
+        elif userinput == 'c':
+            favourites_list = clearFavourites(favourites_list)
+
+    print('main end')
+
+main()

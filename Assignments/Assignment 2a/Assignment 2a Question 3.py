@@ -1,17 +1,49 @@
-# assignment 2a question 3
+#assignment 2a Question 3 Roger Gilbertson
+def selectAll(stories):
+    return stories;
+ 
+ 
+def selectStroiesByAuthor(stories):
+    storyResults = []
+    author       = input('(displayStroiesByAuthor) Enter Author: ').lower()
 
+    for story in stories:
+        if story[1].lower() == author:
+            storyResults.append(story)
 
+    return storyResults
 
-def displayAll(stories):
-    stringSearch = [input('Enter word/s here to search')]
-    for string in stringSearch:
-        for item in stories:
-            if string in item:
-                print(item, 'found')
-                return
+def selectStroiesByAuthorAndPattern(stories):
+    storyResults   = []
+    authorStories  = selectStroiesByAuthor(stories)
+    patternStories = selectStroiesByPattern(stories)
 
+    for authorStory in authorStories:
+        for patternStory in patternStories:
+            if authorStory[0] == patternStory[0] and authorStory[1] == patternStory[1]:
+                storyResults.append(authorStory)
 
+    return storyResults
 
+def selectStroiesByPattern(stories):
+    storyResults = []
+    pattern      = input('(displayStroiesByPattern) Enter Pattern: ').lower()
+
+    for story in stories:
+        if pattern in story[0].lower():
+            storyResults.append(story)
+
+    return storyResults
+
+def selectStoriesByWordCount(stories):
+    storyResults = []
+    wordCount    = int(input('(displayStoriesByWordCount) Enter Word Count: '))
+
+    for story in stories:
+        if len(story[0].split(' ')) < wordCount:
+            storyResults.append(story)
+
+    return storyResults
 
 
 def main():
@@ -39,20 +71,48 @@ def main():
             'Forgot My Own Name: The hospital said it was concussion.\nMight be permanent memory loss.\nCan\'t even remember my own name - which is handy considering who I am.',
             'Mike Jackson']
     ]
-    menu = """
-    *** Stories Explorer ***
-        all - displays all stories
-        ath - finds story by author
-        awd – Find stories that are by a certain author and contain a certain word
-        lss – Find stories less than a certain number of words
-        qit – quit
-    command: ?"""
-    print(menu)
-    inputSelection = input('')
-    while inputSelection != ('all', 'ath', 'awd', 'lss', 'qit'):
+    quit = False
+
+    while quit == False:
+
+        selectedStories = []
+
+        menu = """
+             Stories Explorer
+                all - displays all stories
+                a   - finds story by author
+                ap  - Find stories that are by a certain author and contain a certain word
+                p   - Find stories that contain a certain pattern
+                wc  - Find stories less than a certain number of words
+                q   - quit
+            command: ?"""
+
+        print(menu)
+
+        inputSelection = input()
+
         if inputSelection == 'all':
-            displayAll(stories)
-            main()
+             selectedStories = selectAll(stories)
+
+        elif inputSelection == 'a':
+             selectedStories = selectStroiesByAuthor(stories)
+
+        elif inputSelection == 'ap':
+             selectedStories = selectStroiesByAuthorAndPattern(stories)
+
+        elif inputSelection == 'p':
+             selectedStories = selectStroiesByPattern(stories)
+
+        elif inputSelection == 'wc':
+            selectedStories = selectStoriesByWordCount(stories)
+
+        elif inputSelection == 'q':
+            quit = True
+ 
+ 
+        for story in selectedStories:
+            print('"' + story[0] + '"')
+            print(' -- ' + story[1])
+ 
+ 
 main()
-
-

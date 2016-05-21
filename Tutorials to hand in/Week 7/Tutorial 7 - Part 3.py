@@ -1,4 +1,4 @@
-#Tutorial 7 Part 3
+#Tutorial 7 Part 3 - Roger Gilbertson -14292284
 
 mispellings= """abberration:aberration
 accomodation:accommodation
@@ -40,6 +40,7 @@ goverment:government
 grammer:grammar
 hampster:hamster
 harrass:harass
+helo:hello
 hemorage:haemorrhage
 heros:heroes
 hight:height
@@ -114,30 +115,24 @@ Wendesday:Wednesday
 wierd:weird
 writen:written
 writting:writing"""
-def listFunct():
+def listFunct():                            #function that scans though mispelling list creating correctionlist
     origList = mispellings.split('\n')
-    print(origList)
     correctionList =[]
     for l in origList:
         correctionList.append(l.split(':'))
-    print(correctionList)
     return correctionList
 
 
-def checkWord(word, correctionList):
+def checkWord(word, correctionList):         #function checks word and  returns correct word
     for (wrong, correct) in correctionList:
         if word.lower() == wrong:
             return correct
         elif word.lower() == correct:
             return correct
-    if word != correct:
+    if word != correct:                      #code so that word is retuned instead of 'nope'
         return word
 
 def main(correctionList):
-    # word = input('test input')
-    # correct_word = checkword(word, correctionList)
-    # print(correct_word)
-
     sentence = input('Please enter sentence here to be processed')
     correctSentence = []
     sentenceWord = sentence.split()
